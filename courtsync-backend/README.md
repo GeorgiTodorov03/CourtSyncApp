@@ -1,0 +1,182 @@
+# CourtSync Backend
+
+Spring Boot 3 REST API for the CourtSync sports hall booking platform. Provides authentication, sport hall search/booking, reservation management, and an AI coach chat endpoint backed by OpenAI.
+
+## Tech stack
+
+- **Java 17**, **Spring Boot 3.2.0**
+- **Spring Web** — REST controllers
+- **Spring Data JPA / Hibernate** — persistence, with MySQL 8 as the target dialect
+- **Spring Security 6** — stateless JWT authentication (lambda DSL configuration)
+- **jjwt 0.12.3** (`io.jsonwebtoken`) — JWT issuing/parsing
+- **MySQL** (`mysql-connector-j`) — database
+- **Lombok** — boilerplate reduction (`@Data`, `@Builder`, `@RequiredArgsConstructor`, …)
+- **Bean Validation** (`spring-boot-starter-validation`) — request DTO validation
+- **OpenAI API** (GPT-4o-mini) — AI Coach chat, called directly via `RestTemplate`/HTTP, not an SDK
+
+## Project layout
+
+```
+src/main/java/com/courtsync/
+├── CourtSyncApplication.java     Spring Boot entry point
+├── config/                       SecurityConfig, CorsConfig
+├── security/                     JwtUtil, JwtAuthFilter, UserDetailsServiceImpl
+├── entity/                       JPA entities (User, SportHall, Sport, Reservation, Review, Favorite, AIConversation, AIMessage)
+├── repository/                   Spring Data JPA repositories
+├── service/                      Business logic (AuthService, SportHallService, ReservationService, UserService, AIService)
+├── controller/                   REST controllers
+├── dto/                          Request/response DTOs
+└── exception/                    GlobalExceptionHandler (@RestControllerAdvice)
+
+src/main/resources/
+├── application.properties        Configuration (see below)
+└── data.sql                      Seed data (sports + real Sofia sport halls), runs on every startup
+```
+
+## Prerequisites
+
+- JDK 17+
+- Maven (or use the included wrapper if present, otherwise a local Maven install)
+- MySQL 8+ running locally (or reachable over network)
+- An OpenAI API key (optional — the AI Coach falls back to a canned response if the key is missing/invalid)
+
+## Configuration
+
+All configuration lives in `src/main/resources/application.properties`. **Do not commit real credentials to this file.** Use environment variable placeholders and provide the actual values via your shell, an untracked `application-local.properties`, or your IDE's run configuration.
+
+```properties
+spring.application.name=courtsync-backend
+
+# MySQL DataSource
+spring.datasource.url=jdbc:mysql://localhost:3306/courtsync_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.username=${DB_USERNAME:root}
+spring.datasource.password=${DB_PASSWORD}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# Seed data — runs data.sql on every startup (upserts sports + demo halls)
+spring.sql.init.mode=always
+spring.sql.init.continue-on-error=true
+
+# JWT
+jwt.secret=${JWT_SECRET}
+jwt.expiration=86400000
+
+# Server
+server.port=8080
+server.error.include-message=always
+
+# Logging
+logging.level.com.courtsync=DEBUG
+logging.level.org.springframework.security=WARN
+
+# OpenAI (AI Coach)
+openai.api.key=${OPENAI_API_KEY}
+openai.model=gpt-4o-mini
+```
+
+| Property | Description |
+|---|---|
+| `spring.datasource.*` | MySQL connection. The DB (`courtsync_db`) is auto-created if it doesn't exist. |
+| `jwt.secret` | Base64-encoded HMAC-SHA key used to sign/verify JWTs (`Keys.hmacShaKeyFor(Base64.getDecoder().decode(secret))`). Must be at least 256 bits once decoded. |
+| `jwt.expiration` | Token lifetime in milliseconds (default: 24h). |
+| `openai.api.key` | Used by `AIService` for the `/api/ai/chat` endpoint. If omitted or invalid, the service degrades gracefully to a fallback response instead of failing the request. |
+| `spring.sql.init.mode=always` + `data.sql` | Seeds/upserts the `sports` lookup table and 4 real Sofia sport halls (Арена Исаев, Спортен комплекс "Мир и дружба", Тенис клуб "Про Спорт", Овергаз Арена) on every boot. Safe to re-run — uses `ON DUPLICATE KEY UPDATE`. |
+
+Generate a JWT secret (must be valid Base64):
+
+```bash
+openssl rand -base64 32
+```
+
+## Running locally
+
+```bash
+# from courtsync-backend/
+export DB_PASSWORD=your_mysql_password
+export JWT_SECRET=$(openssl rand -base64 32)
+export OPENAI_API_KEY=sk-...           # optional
+
+mvn spring-boot:run
+```
+
+The API starts on `http://localhost:8080`. From an Android emulator, it's reachable at `http://10.0.2.2:8080/` (see the [Android README](../CourtSyncApp/README.md)).
+
+Build a jar:
+
+```bash
+mvn clean package
+java -jar target/courtsync-backend-1.0.0.jar
+```
+
+## Data model
+
+| Entity | Notes |
+|---|---|
+| `User` | `Role` enum: `USER`, `HALL_OWNER`, `ADMIN`. BCrypt-hashed password, credits balance, booking stats. |
+| `Sport` | Lookup table (Basketball, Football, Tennis, Padel, Volleyball, Badminton). |
+| `SportHall` | `HallType` enum: `INDOOR`, `OUTDOOR`, `PREMIUM`, `CLAY`, `GRASS`. Belongs to one `Sport`, has lat/lng, price/hour, rating, opening hours. |
+| `Reservation` | `Status` enum: `PENDING`, `CONFIRMED`, `CANCELLED`, `COMPLETED`. Computed `totalPrice = pricePerHour × hours`. |
+| `Review` | Hall rating/comment (1–5), tied to a user and a hall. |
+| `Favorite` | User↔hall many-to-many join, unique per (user, hall). |
+| `AIConversation` / `AIMessage` | Persisted chat history for the AI Coach, `Role` enum: `USER`, `ASSISTANT`. |
+
+## Security
+
+- Stateless JWT auth — `Authorization: Bearer <token>` header, validated by `JwtAuthFilter` (a `OncePerRequestFilter`) before Spring Security's `UsernamePasswordAuthenticationFilter`.
+- Passwords hashed with `BCryptPasswordEncoder`.
+- `/api/auth/**` and `/api/halls`, `/api/halls/**` are public; everything else requires a valid token (see `SecurityConfig`).
+- CORS is permissive (`CorsConfig`) to simplify local development against the Android emulator — tighten this before any production deployment.
+
+## API reference
+
+Base path: `/api`
+
+### Auth (public)
+
+| Method | Path | Description |
+|---|---|---|
+| `POST` | `/auth/register` | Create an account. Body: `fullName`, `email`, `password`. Returns a JWT + user profile. |
+| `POST` | `/auth/login` | Authenticate. Body: `email`, `password`. Returns a JWT + user profile. |
+
+### Sport halls (public)
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/halls/recommended` | Top 10 halls by rating. |
+| `GET` | `/halls` | Search/paginate halls. Query params: `query`, `sportId`, `sortBy` (`rating_asc/desc`, `price_asc/desc`, `name_asc/desc`), `page`, `size`. |
+| `GET` | `/halls/{id}` | Hall details. |
+| `POST` | `/halls/{id}/favorite` | Toggle favorite for the authenticated user (requires auth). |
+
+### Reservations (requires auth)
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/reservations/upcoming` | Authenticated user's upcoming reservations. |
+| `GET` | `/reservations/past` | Authenticated user's past reservations. |
+| `POST` | `/reservations` | Create a reservation. Body: `hallId`, `date`, `startTime`, `endTime`. |
+| `DELETE` | `/reservations/{id}` | Cancel a reservation. |
+
+### Users (requires auth)
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/users/me` | Current user's profile. |
+| `PUT` | `/users/me` | Update profile fields. |
+
+### AI Coach (requires auth)
+
+| Method | Path | Description |
+|---|---|---|
+| `POST` | `/ai/chat` | Send a message to the AI coach; returns an assistant reply, optionally with a suggested hall, with history persisted per user. |
+
+All error responses are shaped by `GlobalExceptionHandler` (`@RestControllerAdvice`), covering validation errors, bad credentials, and generic runtime failures with consistent JSON error bodies.
+
+## Notes on the JWT secret format
+
+`JwtUtil` decodes `jwt.secret` from Base64 and builds the signing key with `Keys.hmacShaKeyFor(...)`, and parses/verifies tokens via `Jwts.parser().verifyWith(key).build().parseSignedClaims(token)` — the jjwt 0.12.x API. If you rotate the secret, all previously issued tokens become invalid.
