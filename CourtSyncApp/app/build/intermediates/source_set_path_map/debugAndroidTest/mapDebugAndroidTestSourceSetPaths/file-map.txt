@@ -1,0 +1,6 @@
+com.courtsync.app.test.app-core-1.5.0-0 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\19eeec5ebe312f86f34c013a6d133c28\transformed\core-1.5.0\res
+com.courtsync.app.test.app-annotation-experimental-1.3.0-1 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\a7302dc8d55521399b2312508f999878\transformed\annotation-experimental-1.3.0\res
+com.courtsync.app.test.app-androidTest-2 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\generated\res\resValues\androidTest\debug
+com.courtsync.app.test.app-mergeDebugAndroidTestResources-3 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.courtsync.app.test.app-mergeDebugAndroidTestResources-4 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.courtsync.app.test.app-debugAndroidTest-5 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

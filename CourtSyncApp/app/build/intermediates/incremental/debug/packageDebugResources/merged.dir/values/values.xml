@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#0D0D0D</color>
+    <color name="background_secondary">#131313</color>
+    <color name="border">#2A2A2A</color>
+    <color name="card_background">#1A1A1A</color>
+    <color name="error">#FF4444</color>
+    <color name="error_light">#FF444420</color>
+    <color name="foreground">#FFFFFF</color>
+    <color name="foreground_secondary">#E0E0E0</color>
+    <color name="input_background">#1E1E1E</color>
+    <color name="muted_foreground">#888888</color>
+    <color name="nav_background">#0D0D0D</color>
+    <color name="nav_icon_active">#10E5B2</color>
+    <color name="nav_icon_inactive">#888888</color>
+    <color name="on_primary">#0D0D0D</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_surface">#FFFFFF</color>
+    <color name="primary">#10E5B2</color>
+    <color name="primary_10">#1A10E5B2</color>
+    <color name="primary_20">#3310E5B2</color>
+    <color name="primary_30">#4D10E5B2</color>
+    <color name="primary_dark">#0BBFA0</color>
+    <color name="primary_glow">#4010E5B2</color>
+    <color name="primary_variant">#08A88A</color>
+    <color name="secondary">#232323</color>
+    <color name="status_bar">#0D0D0D</color>
+    <color name="success">#10E5B2</color>
+    <color name="surface">#1A1A1A</color>
+    <color name="surface_variant">#202020</color>
+    <color name="warning">#FFB020</color>
+    <dimen name="avatar_size_large">112dp</dimen>
+    <dimen name="avatar_size_medium">40dp</dimen>
+    <dimen name="avatar_size_small">24dp</dimen>
+    <dimen name="bottom_nav_height">72dp</dimen>
+    <dimen name="button_corner_radius">50dp</dimen>
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_corner_radius_large">16dp</dimen>
+    <dimen name="card_corner_radius_xl">20dp</dimen>
+    <dimen name="elevation_bottom_sheet">8dp</dimen>
+    <dimen name="elevation_card">2dp</dimen>
+    <dimen name="hall_image_height_card">192dp</dimen>
+    <dimen name="hall_image_size_list">96dp</dimen>
+    <dimen name="icon_size_lg">24dp</dimen>
+    <dimen name="icon_size_md">20dp</dimen>
+    <dimen name="icon_size_sm">16dp</dimen>
+    <dimen name="input_corner_radius">12dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="input_padding_start">48dp</dimen>
+    <dimen name="login_header_height">288dp</dimen>
+    <dimen name="profile_header_height">240dp</dimen>
+    <dimen name="register_header_height">192dp</dimen>
+    <dimen name="screen_padding">24dp</dimen>
+    <dimen name="screen_padding_small">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="text_2xl">24sp</dimen>
+    <dimen name="text_3xl">30sp</dimen>
+    <dimen name="text_4xl">36sp</dimen>
+    <dimen name="text_5xl">48sp</dimen>
+    <dimen name="text_base">14sp</dimen>
+    <dimen name="text_lg">18sp</dimen>
+    <dimen name="text_md">16sp</dimen>
+    <dimen name="text_sm">11sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+    <dimen name="text_xs">9sp</dimen>
+    <string name="account_settings">Account Settings</string>
+    <string name="ai_coach_prompt">Let our AI Coach find the perfect court for your next match.</string>
+    <string name="ai_coach_title">AI Coach</string>
+    <string name="all_sports">All Sports</string>
+    <string name="already_member">Already a member?</string>
+    <string name="always_ready">Always Ready</string>
+    <string name="app_name">CourtSync</string>
+    <string name="apply_filters">Apply</string>
+    <string name="ask_ai_coach">Ask AI Coach</string>
+    <string name="basketball">Basketball</string>
+    <string name="become_hall_owner">BECOME A HALL OWNER</string>
+    <string name="best_rating">Best Rating</string>
+    <string name="booked_today">booked today</string>
+    <string name="bookings_label">Bookings</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_confirm_message">Are you sure you want to cancel this reservation? This action cannot be undone.</string>
+    <string name="cancel_confirm_title">Cancel Reservation?</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="cd_favorite_icon">Toggle favorite</string>
+    <string name="cd_hall_map">Map showing the hall\'s location</string>
+    <string name="cd_hall_photo">Sport hall photo</string>
+    <string name="cheapest_options">Cheapest Options</string>
+    <string name="confirm_password_label">Confirm Password</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="create_password_label">Create Password</string>
+    <string name="create_player_profile">Create your player profile</string>
+    <string name="credits_label">Credits</string>
+    <string name="description">Description</string>
+    <string name="email_hint">player@example.com</string>
+    <string name="email_label">Email or Username</string>
+    <string name="error_auth">Session expired. Please login again.</string>
+    <string name="error_email_invalid">Enter a valid email address</string>
+    <string name="error_network">No internet connection. Please check your network.</string>
+    <string name="error_password_short">Password must be at least 6 characters</string>
+    <string name="error_passwords_mismatch">Passwords do not match</string>
+    <string name="error_required">This field is required</string>
+    <string name="error_server">Server error. Please try again later.</string>
+    <string name="find_a_court">Find a Court</string>
+    <string name="football">Football</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="google_maps_key" translatable="false">AIzaSyCgpKgx7aUqUOPmBszzvedZrcJZM7gqx0Y</string>
+    <string name="hall_owner_desc">List your own sports facility and start earning with our player network.</string>
+    <string name="hours_label">Hours</string>
+    <string name="location">Location</string>
+    <string name="login_here">Login here</string>
+    <string name="login_title">Login to Court</string>
+    <string name="message_coach">Message Coach…</string>
+    <string name="modify">Modify</string>
+    <string name="nav_ai">AI Coach</string>
+    <string name="nav_bookings">Bookings</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_search">Search</string>
+    <string name="nearby_courts">Nearby Courts</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="no_past_reservations">No past reservations yet.</string>
+    <string name="no_upcoming_reservations">No upcoming reservations.\nBook a court to get started!</string>
+    <string name="open_hours">Open hours</string>
+    <string name="open_in_maps">Open in Maps</string>
+    <string name="padel">Padel</string>
+    <string name="password_hint">••••••••</string>
+    <string name="password_label">Password</string>
+    <string name="past_games">Past Games</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="per_hour">/hr</string>
+    <string name="per_session">/ session</string>
+    <string name="personal_info">Personal Information</string>
+    <string name="personal_info_sub">Email, Phone, City</string>
+    <string name="premium_player">Premium Player • Gold Rank</string>
+    <string name="profile_title">Profile</string>
+    <string name="rate">Rate</string>
+    <string name="recommended_halls">Recommended Halls</string>
+    <string name="register_now">Register now</string>
+    <string name="register_title">Join the League</string>
+    <string name="rent_now">Rent Now</string>
+    <string name="reverse_order">Reverse order</string>
+    <string name="reverse_order_hint">Show lowest values first instead of highest</string>
+    <string name="search_placeholder">Search by name, city or sport…</string>
+    <string name="sign_out">Sign Out of Account</string>
+    <string name="sign_up_now">Sign Up Now</string>
+    <string name="sort_and_filter">Sort &amp; Filter</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="sort_name">Name (Alphabetical)</string>
+    <string name="sort_price">Price</string>
+    <string name="sort_rating">Rating</string>
+    <string name="start_hosting">Start Hosting</string>
+    <string name="tagline">Book your next game.</string>
+    <string name="tennis">Tennis</string>
+    <string name="total_price">Total Price</string>
+    <string name="unsure_where_to_play">UNSURE WHERE TO PLAY?</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="view_all">View All</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="your_games">Your Games</string>
+    <style name="BottomNav.CourtSync" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/nav_background</item>
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
+    </style>
+    <style name="Button.CourtSync.Destructive" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/error</item>
+        <item name="android:textColor">@color/error</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+    <style name="Button.CourtSync.Primary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+    <style name="CardView.CourtSync" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+    <style name="Tag.CourtSync.Primary" parent="">
+        <item name="android:background">@drawable/bg_tag_primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+    <style name="TextAppearance.CourtSync.Caption" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="TextAppearance.CourtSync.Heading" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/foreground</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+    <style name="TextInput.CourtSync" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="boxStrokeColor">@color/border</item>
+        <item name="hintTextColor">@color/muted_foreground</item>
+        <item name="android:textColorHint">@color/muted_foreground</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+    <style name="Theme.CourtSync" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorError">@color/error</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/nav_background</item>
+        <item name="android:textColor">@color/foreground</item>
+        <item name="materialCardViewStyle">@style/CardView.CourtSync</item>
+        <item name="bottomNavigationStyle">@style/BottomNav.CourtSync</item>
+        <item name="textInputStyle">@style/TextInput.CourtSync</item>
+    </style>
+    <style name="Theme.CourtSync.Splash" parent="Theme.CourtSync">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen padding -->
+    <dimen name="screen_padding">24dp</dimen>
+    <dimen name="screen_padding_small">16dp</dimen>
+
+    <!-- Card -->
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_corner_radius_large">16dp</dimen>
+    <dimen name="card_corner_radius_xl">20dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+
+    <!-- Button -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="button_corner_radius">50dp</dimen>
+
+    <!-- Input -->
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="input_corner_radius">12dp</dimen>
+    <dimen name="input_padding_start">48dp</dimen>
+
+    <!-- Bottom navigation -->
+    <dimen name="bottom_nav_height">72dp</dimen>
+
+    <!-- Hall image -->
+    <dimen name="hall_image_height_card">192dp</dimen>
+    <dimen name="hall_image_size_list">96dp</dimen>
+
+    <!-- Avatar -->
+    <dimen name="avatar_size_small">24dp</dimen>
+    <dimen name="avatar_size_medium">40dp</dimen>
+    <dimen name="avatar_size_large">112dp</dimen>
+
+    <!-- Icon -->
+    <dimen name="icon_size_sm">16dp</dimen>
+    <dimen name="icon_size_md">20dp</dimen>
+    <dimen name="icon_size_lg">24dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_xs">9sp</dimen>
+    <dimen name="text_sm">11sp</dimen>
+    <dimen name="text_base">14sp</dimen>
+    <dimen name="text_md">16sp</dimen>
+    <dimen name="text_lg">18sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+    <dimen name="text_2xl">24sp</dimen>
+    <dimen name="text_3xl">30sp</dimen>
+    <dimen name="text_4xl">36sp</dimen>
+    <dimen name="text_5xl">48sp</dimen>
+
+    <!-- Profile header -->
+    <dimen name="profile_header_height">240dp</dimen>
+
+    <!-- Login header -->
+    <dimen name="login_header_height">288dp</dimen>
+    <dimen name="register_header_height">192dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="elevation_card">2dp</dimen>
+    <dimen name="elevation_bottom_sheet">8dp</dimen>
+</resources>

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.courtsync.app-mergeDebugResources-50:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Georgi\\.gradle\\caches\\8.10.2\\transforms\\141c7e19ffb57c62bd402d6df7dd7aa0\\transformed\\appcompat-1.6.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

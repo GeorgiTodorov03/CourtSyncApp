@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CourtSync" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorError">@color/error</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/nav_background</item>
+        <item name="android:textColor">@color/foreground</item>
+        <item name="materialCardViewStyle">@style/CardView.CourtSync</item>
+        <item name="bottomNavigationStyle">@style/BottomNav.CourtSync</item>
+        <item name="textInputStyle">@style/TextInput.CourtSync</item>
+    </style>
+
+    <style name="Theme.CourtSync.Splash" parent="Theme.CourtSync">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- Card style -->
+    <style name="CardView.CourtSync" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Bottom navigation -->
+    <style name="BottomNav.CourtSync" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/nav_background</item>
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
+    </style>
+
+    <!-- TextInput style -->
+    <style name="TextInput.CourtSync" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="boxStrokeColor">@color/border</item>
+        <item name="hintTextColor">@color/muted_foreground</item>
+        <item name="android:textColorHint">@color/muted_foreground</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+    <!-- Button primary -->
+    <style name="Button.CourtSync.Primary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+    <!-- Button outlined destructive -->
+    <style name="Button.CourtSync.Destructive" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/error</item>
+        <item name="android:textColor">@color/error</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Section heading -->
+    <style name="TextAppearance.CourtSync.Heading" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/foreground</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <!-- Muted label -->
+    <style name="TextAppearance.CourtSync.Caption" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Tag / chip -->
+    <style name="Tag.CourtSync.Primary" parent="">
+        <item name="android:background">@drawable/bg_tag_primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+</resources>

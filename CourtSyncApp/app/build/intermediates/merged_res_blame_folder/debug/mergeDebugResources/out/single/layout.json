@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\fragment_ai.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\fragment_ai.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\item_ai_message_assistant.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\item_ai_message_assistant.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\item_reservation.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\item_reservation.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\fragment_search.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\item_hall_list.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\item_hall_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\fragment_sport_hall_details.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\fragment_sport_hall_details.xml"
+    },
+    {
+        "merged": "com.courtsync.app-mergeDebugResources-51:/layout/bottom_sheet_sort.xml",
+        "source": "com.courtsync.app-main-54:/layout/bottom_sheet_sort.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\item_ai_message_user.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\item_ai_message_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\fragment_reservations.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\fragment_reservations.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-mergeDebugResources-51:\\layout\\item_hall_card.xml",
+        "source": "C:\\Users\\Georgi\\.gradle\\daemon\\8.10.2\\com.courtsync.app-main-54:\\layout\\item_hall_card.xml"
+    }
+]

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.courtsync.app-mergeDebugResources-50:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Georgi\\.gradle\\caches\\8.10.2\\transforms\\141c7e19ffb57c62bd402d6df7dd7aa0\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

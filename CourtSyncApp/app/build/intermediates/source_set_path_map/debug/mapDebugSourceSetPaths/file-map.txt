@@ -1,0 +1,55 @@
+com.courtsync.app-lifecycle-runtime-ktx-2.7.0-0 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\01f65e9cd0490d469ab7149b9d92ca01\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.courtsync.app-navigation-ui-2.7.7-1 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\0932d73db03f1b53f064c6f580b25de0\transformed\navigation-ui-2.7.7\res
+com.courtsync.app-appcompat-1.6.1-2 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\141c7e19ffb57c62bd402d6df7dd7aa0\transformed\appcompat-1.6.1\res
+com.courtsync.app-navigation-runtime-2.7.7-3 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\252b9f75e39b17722d74578808bbfb61\transformed\navigation-runtime-2.7.7\res
+com.courtsync.app-lifecycle-viewmodel-ktx-2.7.0-4 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\26fe27c1961c11713368da0c1f2f47ff\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.courtsync.app-lifecycle-runtime-2.7.0-5 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\2c58e4ab0f3f27a2adb27205b0daeadc\transformed\lifecycle-runtime-2.7.0\res
+com.courtsync.app-savedstate-1.2.1-6 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\2f013f618c0a4c5a1aafcc2ce1741176\transformed\savedstate-1.2.1\res
+com.courtsync.app-profileinstaller-1.3.0-7 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\31a3a947a48b949f34ba61efda2d297e\transformed\profileinstaller-1.3.0\res
+com.courtsync.app-room-runtime-2.6.1-8 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\3704577ad1cf981dc2f449b57acab01e\transformed\room-runtime-2.6.1\res
+com.courtsync.app-activity-1.8.0-9 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\3a1a5a248f42aaae8fda7b0098780c30\transformed\activity-1.8.0\res
+com.courtsync.app-lifecycle-livedata-core-ktx-2.7.0-10 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\4db1e4cef2537bbc02cfb96e62bcbab1\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.courtsync.app-swiperefreshlayout-1.1.0-11 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\5c00c64fb49c15830a105a1695bbe7ca\transformed\swiperefreshlayout-1.1.0\res
+com.courtsync.app-fragment-ktx-1.6.2-12 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\5c9a977f6616d5f18e481b1d8f0dfb84\transformed\fragment-ktx-1.6.2\res
+com.courtsync.app-lifecycle-viewmodel-savedstate-2.7.0-13 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\64907e32228cfcb90482c246ea00dbe1\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.courtsync.app-slidingpanelayout-1.2.0-14 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\6780025497d67b7ec7762b9e6c2d4897\transformed\slidingpanelayout-1.2.0\res
+com.courtsync.app-startup-runtime-1.1.1-15 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\6e11d9e29fb9a2c92b9db532c912018c\transformed\startup-runtime-1.1.1\res
+com.courtsync.app-material-1.11.0-16 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\6f2490b2eb7c06faabb02bc9e2405b9d\transformed\material-1.11.0\res
+com.courtsync.app-play-services-base-18.0.1-17 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\70dec2ef74e019fab7082afd0526eefa\transformed\play-services-base-18.0.1\res
+com.courtsync.app-lifecycle-livedata-2.7.0-18 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\78579ce0ac19dd3da6be9bbf961547ef\transformed\lifecycle-livedata-2.7.0\res
+com.courtsync.app-fragment-1.6.2-19 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\7a902fd4af710c74b1bf6d867e9f1645\transformed\fragment-1.6.2\res
+com.courtsync.app-window-1.0.0-20 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\7ec427e2f0546867db9c3ccaf7f9a02b\transformed\window-1.0.0\res
+com.courtsync.app-sqlite-2.4.0-21 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\88fdb9a7899e9e2cbb04f5d1cedc4360\transformed\sqlite-2.4.0\res
+com.courtsync.app-recyclerview-1.3.2-22 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\8c3b8cab37fa78676c6a217215468eba\transformed\recyclerview-1.3.2\res
+com.courtsync.app-navigation-common-2.7.7-23 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\8da2088cc81f8bd716e99fbbdf371bf8\transformed\navigation-common-2.7.7\res
+com.courtsync.app-core-runtime-2.2.0-24 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\8f219e9acb7302cdf00e7ba38b98f851\transformed\core-runtime-2.2.0\res
+com.courtsync.app-savedstate-ktx-1.2.1-25 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\94e170c4c3bce92e4f23c85da6a0f6bd\transformed\savedstate-ktx-1.2.1\res
+com.courtsync.app-navigation-fragment-2.7.7-26 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\951681779481f1c98f554883115a8217\transformed\navigation-fragment-2.7.7\res
+com.courtsync.app-transition-1.4.1-27 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\a21b4fed76215da726691b7b860a78da\transformed\transition-1.4.1\res
+com.courtsync.app-annotation-experimental-1.3.0-28 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\a7302dc8d55521399b2312508f999878\transformed\annotation-experimental-1.3.0\res
+com.courtsync.app-glide-4.16.0-29 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\adaa45e76831bca4578e0678019dc69a\transformed\glide-4.16.0\res
+com.courtsync.app-lifecycle-process-2.7.0-30 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\afa6010b9c3cbdd112cc97e7f7556f79\transformed\lifecycle-process-2.7.0\res
+com.courtsync.app-viewpager2-1.1.0-beta02-31 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\bdc91be127d0e7e1bf37590b6fc68c05\transformed\viewpager2-1.1.0-beta02\res
+com.courtsync.app-play-services-maps-18.2.0-32 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\bdf802e1a03dbf5b8c18ad5a6c2c0f4c\transformed\play-services-maps-18.2.0\res
+com.courtsync.app-activity-ktx-1.8.0-33 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\bf32f8497b966a1b8bc7271486930cbb\transformed\activity-ktx-1.8.0\res
+com.courtsync.app-constraintlayout-2.1.4-34 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\c07e60895457c361a3c325ccb5abf496\transformed\constraintlayout-2.1.4\res
+com.courtsync.app-lifecycle-livedata-core-2.7.0-35 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\c9ecc4f37b4a094d28c87f5b9138337b\transformed\lifecycle-livedata-core-2.7.0\res
+com.courtsync.app-drawerlayout-1.1.1-36 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\ca710fee9300941acd97980b0976877d\transformed\drawerlayout-1.1.1\res
+com.courtsync.app-core-1.9.0-37 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\da5f302cc062e34ee8fdef0acf0dcec8\transformed\core-1.9.0\res
+com.courtsync.app-play-services-basement-18.0.0-38 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\e1b691d9fbd12065f490993975319835\transformed\play-services-basement-18.0.0\res
+com.courtsync.app-emoji2-views-helper-1.2.0-39 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\e326bf5b0545478faf10f9d442b553d6\transformed\emoji2-views-helper-1.2.0\res
+com.courtsync.app-cardview-1.0.0-40 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\e52eb4d3da49563ec7280930a5814d14\transformed\cardview-1.0.0\res
+com.courtsync.app-appcompat-resources-1.6.1-41 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\e65042dc6fd479b590f278b720323d38\transformed\appcompat-resources-1.6.1\res
+com.courtsync.app-lifecycle-viewmodel-2.7.0-42 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\e69219d4a415bf41c1cffc914654277d\transformed\lifecycle-viewmodel-2.7.0\res
+com.courtsync.app-core-ktx-1.9.0-43 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\eb06755f59f6bc3e121a0cf7f6c91e35\transformed\core-ktx-1.9.0\res
+com.courtsync.app-coordinatorlayout-1.1.0-44 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\f50b285298f1c0673aed25999646caa1\transformed\coordinatorlayout-1.1.0\res
+com.courtsync.app-customview-poolingcontainer-1.0.0-45 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\fa15d081cfa6ccf7e06f2fc06f2b9d12\transformed\customview-poolingcontainer-1.0.0\res
+com.courtsync.app-sqlite-framework-2.4.0-46 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\fc75549b141cc7e90de0e7408288841d\transformed\sqlite-framework-2.4.0\res
+com.courtsync.app-emoji2-1.2.0-47 C:\Users\Georgi\.gradle\caches\8.10.2\transforms\fcea92096c9dd1754b61231bf6bbfb96\transformed\emoji2-1.2.0\res
+com.courtsync.app-pngs-48 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\generated\res\pngs\debug
+com.courtsync.app-resValues-49 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\generated\res\resValues\debug
+com.courtsync.app-packageDebugResources-50 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.courtsync.app-packageDebugResources-51 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.courtsync.app-debug-52 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.courtsync.app-debug-53 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\src\debug\res
+com.courtsync.app-main-54 C:\Users\Georgi\Desktop\TU SHIT\Diplomna\CourtSyncApp\app\src\main\res
