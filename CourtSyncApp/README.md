@@ -11,7 +11,7 @@ Native Android client for CourtSync, written in Java with an MVVM architecture. 
 - **Gson** - JSON (de)serialization
 - **Glide** - image loading or (avatars, hall photos)
 - **Google Maps SDK for Android** (`play-services-maps`) - embedded map + marker on the hall details screen
-- **Material Components 3** - dark theme, primary color `#10E5B2`
+- **Material Components 3** - dark theme
 - **ViewBinding** enabled
 - **Room** - dependency present for future offline caching (not yet wired up)
 - Gradle **version catalog** (`gradle/libs.versions.toml`)
