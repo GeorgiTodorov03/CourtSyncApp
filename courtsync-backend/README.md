@@ -5,14 +5,14 @@ Spring Boot 3 REST API for the CourtSync sports hall booking platform. Provides 
 ## Tech stack
 
 - **Java 17**, **Spring Boot 3.2.0**
-- **Spring Web** — REST controllers
-- **Spring Data JPA / Hibernate** — persistence, with MySQL 8 as the target dialect
-- **Spring Security 6** — stateless JWT authentication (lambda DSL configuration)
-- **jjwt 0.12.3** (`io.jsonwebtoken`) — JWT issuing/parsing
-- **MySQL** (`mysql-connector-j`) — database
+- **Spring Web** - REST controllers
+- **Spring Data JPA / Hibernate** - persistence, with MySQL 8 as the target dialect
+- **Spring Security 6** - stateless JWT authentication (lambda DSL configuration)
+- **jjwt 0.12.3** (`io.jsonwebtoken`) - JWT issuing/parsing
+- **MySQL** (`mysql-connector-j`) - database
 - **Lombok** — boilerplate reduction (`@Data`, `@Builder`, `@RequiredArgsConstructor`, …)
-- **Bean Validation** (`spring-boot-starter-validation`) — request DTO validation
-- **OpenAI API** (GPT-4o-mini) — AI Coach chat, called directly via `RestTemplate`/HTTP, not an SDK
+- **Bean Validation** (`spring-boot-starter-validation`) - request DTO validation
+- **OpenAI API** (GPT-4o-mini) - AI Coach chat, called directly via `RestTemplate`/HTTP, not an SDK
 
 ## Project layout
 
@@ -38,7 +38,7 @@ src/main/resources/
 - JDK 17+
 - Maven (or use the included wrapper if present, otherwise a local Maven install)
 - MySQL 8+ running locally (or reachable over network)
-- An OpenAI API key (optional — the AI Coach falls back to a canned response if the key is missing/invalid)
+- An OpenAI API key (optional - the AI Coach falls back to a canned response if the key is missing/invalid)
 
 ## Configuration
 
