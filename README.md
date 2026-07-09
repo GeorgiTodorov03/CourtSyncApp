@@ -11,28 +11,28 @@ The project is split into two independent modules in this repository:
 
 ## Features
 
-- **Auth** — email/password registration and login, JWT bearer tokens, BCrypt password hashing
-- **Sport hall discovery** — recommended halls, keyword/city/sport search, sort by rating/price/name (with reverse toggle), filter chips by sport
-- **Hall details** — photos, opening hours, pricing, description, an embedded Google Map with a marker at the venue's location, favoriting
-- **Bookings** — date/time-slot reservation flow, upcoming/past reservation lists, cancellation
-- **AI Coach** — chat-based assistant (OpenAI GPT-4o-mini) that recommends halls based on the user's message, with conversation history persisted per user
-- **Profile** — booking stats, credits, sign out
+- **Auth** - email/password registration and login, JWT bearer tokens, BCrypt password hashing
+- **Sport hall discovery** - recommended halls, keyword/city/sport search, sort by rating/price/name (with reverse toggle), filter chips by sport
+- **Hall details** - photos, opening hours, pricing, description, an embedded Google Map with a marker at the venue's location, favoriting
+- **Bookings** - date/time-slot reservation flow, upcoming/past reservation lists, cancellation
+- **AI Coach** - chat-based assistant (OpenAI GPT-4o-mini) that recommends halls based on the user's message, with conversation history persisted per user
+- **Profile** - booking stats, credits, sign out
 
 ## Architecture
 
 ```
 ┌─────────────────────────┐        HTTPS/JSON (JWT Bearer)        ┌──────────────────────────┐
-│   Android App (Java)    │  ───────────────────────────────────▶ │  Spring Boot REST API    │
-│  MVVM + Retrofit/OkHttp │ ◀─────────────────────────────────── │  Spring Security + JWT    │
+│   Android App (Java)    │  ───────────────────────────────────▶│  Spring Boot REST API   │
+│  MVVM + Retrofit/OkHttp │ ◀─────────────────────────────────── │  Spring Security + JWT   │
 └─────────────────────────┘                                       └───────────┬──────────────┘
                                                                                 │ JPA/Hibernate
                                                                     ┌───────────▼──────────────┐
-                                                                    │        MySQL              │
-                                                                    └────────────────────────────┘
+                                                                    │        MySQL             │
+                                                                    └──────────────────────────┘
                                                                                 │
                                                                     ┌───────────▼──────────────┐
-                                                                    │   OpenAI API (AI Coach)   │
-                                                                    └────────────────────────────┘
+                                                                    │   OpenAI API (AI Coach)  │
+                                                                    └──────────────────────────┘
 ```
 
 ## Getting started
@@ -48,4 +48,4 @@ This repository's `courtsync-backend/src/main/resources/application.properties` 
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
