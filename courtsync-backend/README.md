@@ -42,7 +42,7 @@ src/main/resources/
 
 ## Конфигурация
 
-Цялата конфигурация се намира в `src/main/resources/application.properties`. **Не качвайте реални идентификационни данни в този файл.** Използвайте плейсхолдъри за променливи на средата и подавайте реалните стойности чрез вашата обвивка (shell), нетрекнат `application-local.properties`, или конфигурацията за стартиране на вашата IDE.
+Цялата конфигурация се намира в `src/main/resources/application.properties`.
 
 ```properties
 spring.application.name=courtsync-backend
