@@ -68,23 +68,14 @@ public static final String BASE_URL = "http://10.0.2.2:8080/";
 
 ### Google Maps API key
 
-The key is declared in [`res/values/google_maps_api.xml`](app/src/main/res/values/google_maps_api.xml) and wired into the manifest via a `<meta-data android:name="com.google.android.geo.API_KEY">` entry. **Do not commit a real key to source control** - this file currently holds a real key for convenience during development; replace it with your own and consider moving it to a non-committed `local.properties`-based `resValue`/`BuildConfig` field, or restrict the key in the Google Cloud Console to your app's package name + SHA-1 fingerprint.
+The key is declared in [`res/values/google_maps_api.xml`](app/src/main/res/values/google_maps_api.xml) and wired into the manifest via a `<meta-data android:name="com.google.android.geo.API_KEY">` entry.
 
 ## Building & running
 
-1. Open the `CourtSyncApp/` folder in Android Studio (not the repo root).
+1. Open the `CourtSyncApp/` folder in Android Studio.
 2. Let Gradle sync — dependencies are resolved via `gradle/libs.versions.toml`.
 3. Start the backend first (see [backend README](../courtsync-backend/README.md)).
 4. Run the `app` configuration on an emulator (API 24+) or physical device.
-
-From the command line:
-
-```bash
-# from CourtSyncApp/
-./gradlew assembleDebug
-# or, to install directly on a connected device/emulator
-./gradlew installDebug
-```
 
 ### Gradle properties
 
