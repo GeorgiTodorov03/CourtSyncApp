@@ -1,5 +1,190 @@
 # CourtSync Backend
 
+Spring Boot 3 REST API за платформата за резервация на спортни зали CourtSync. Осигурява автентикация, търсене/резервация на спортни зали, управление на резервации и chat endpoint за AI треньор, задвижван от OpenAI.
+
+## Технологичен стек
+
+- **Java 17**, **Spring Boot 3.2.0**
+- **Spring Web** - REST контролери
+- **Spring Data JPA / Hibernate** - постоянство на данните, с MySQL 8 като целеви диалект
+- **Spring Security 6** - stateless JWT автентикация (lambda DSL конфигурация)
+- **jjwt 0.12.3** (`io.jsonwebtoken`) - издаване/парсиране на JWT
+- **MySQL** (`mysql-connector-j`) - база данни
+- **Lombok** — намаляване на шаблонния код (`@Data`, `@Builder`, `@RequiredArgsConstructor`, …)
+- **Bean Validation** (`spring-boot-starter-validation`) - валидация на request DTO-та
+- **OpenAI API** (GPT-4o-mini) - чат за AI треньора, извикван директно през `RestTemplate`/HTTP, не чрез SDK
+
+## Структура на проекта
+
+```
+src/main/java/com/courtsync/
+├── CourtSyncApplication.java     Входна точка на Spring Boot
+├── config/                       SecurityConfig, CorsConfig
+├── security/                     JwtUtil, JwtAuthFilter, UserDetailsServiceImpl
+├── entity/                       JPA ентитети (User, SportHall, Sport, Reservation, Review, Favorite, AIConversation, AIMessage)
+├── repository/                   Spring Data JPA хранилища (repositories)
+├── service/                      Бизнес логика (AuthService, SportHallService, ReservationService, UserService, AIService)
+├── controller/                   REST контролери
+├── dto/                          DTO-та за заявки/отговори
+└── exception/                    GlobalExceptionHandler (@RestControllerAdvice)
+
+src/main/resources/
+├── application.properties        Конфигурация (вижте по-долу)
+└── data.sql                      Начални данни (спортове + реални спортни зали от София), изпълнява се при всяко стартиране
+```
+
+## Предварителни изисквания
+
+- JDK 17+
+- Maven (или използвайте включения wrapper, ако е наличен, иначе локална инсталация на Maven)
+- MySQL 8+, работещ локално (или достъпен по мрежата)
+- OpenAI API ключ (опционално - AI треньорът се връща към готов отговор, ако ключът липсва/е невалиден)
+
+## Конфигурация
+
+Цялата конфигурация се намира в `src/main/resources/application.properties`. **Не качвайте реални идентификационни данни в този файл.** Използвайте плейсхолдъри за променливи на средата и подавайте реалните стойности чрез вашата обвивка (shell), нетрекнат `application-local.properties`, или конфигурацията за стартиране на вашата IDE.
+
+```properties
+spring.application.name=courtsync-backend
+
+# MySQL DataSource
+spring.datasource.url=jdbc:mysql://localhost:3306/courtsync_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.username=${DB_USERNAME:root}
+spring.datasource.password=${DB_PASSWORD}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# Seed data — runs data.sql on every startup (upserts sports + demo halls)
+spring.sql.init.mode=always
+spring.sql.init.continue-on-error=true
+
+# JWT
+jwt.secret=${JWT_SECRET}
+jwt.expiration=86400000
+
+# Server
+server.port=8080
+server.error.include-message=always
+
+# Logging
+logging.level.com.courtsync=DEBUG
+logging.level.org.springframework.security=WARN
+
+# OpenAI (AI Coach)
+openai.api.key=${OPENAI_API_KEY}
+openai.model=gpt-4o-mini
+```
+
+| Свойство | Описание |
+|---|---|
+| `spring.datasource.*` | MySQL връзка. Базата данни (`courtsync_db`) се създава автоматично, ако не съществува. |
+| `jwt.secret` | Base64-кодиран HMAC-SHA ключ, използван за подписване/проверка на JWT токени (`Keys.hmacShaKeyFor(Base64.getDecoder().decode(secret))`). Трябва да е поне 256 бита след декодиране. |
+| `jwt.expiration` | Времетраене на токена в милисекунди (по подразбиране: 24ч). |
+| `openai.api.key` | Използва се от `AIService` за endpoint-а `/api/ai/chat`. Ако липсва или е невалиден, услугата плавно се връща към резервен отговор, вместо да провали заявката. |
+| `spring.sql.init.mode=always` + `data.sql` | Зарежда/обновява таблицата `sports` и 4 реални спортни зали от София (Арена Исаев, Спортен комплекс "Мир и дружба", Тенис клуб "Про Спорт", Овергаз Арена) при всяко стартиране. Безопасно е за повторно изпълнение — използва `ON DUPLICATE KEY UPDATE`. |
+
+Генериране на JWT таен ключ (трябва да е валиден Base64):
+
+```bash
+openssl rand -base64 32
+```
+
+## Локално стартиране
+
+```bash
+# from courtsync-backend/
+export DB_PASSWORD=your_mysql_password
+export JWT_SECRET=$(openssl rand -base64 32)
+export OPENAI_API_KEY=sk-...           # optional
+
+mvn spring-boot:run
+```
+
+API-то стартира на `http://localhost:8080`. От Android емулатор е достъпно на `http://10.0.2.2:8080/` (вижте [Android README](../CourtSyncApp/README.md)).
+
+Компилиране на jar файл:
+
+```bash
+mvn clean package
+java -jar target/courtsync-backend-1.0.0.jar
+```
+
+## Модел на данните
+
+| Ентитет | Бележки |
+|---|---|
+| `User` | `Role` enum: `USER`, `HALL_OWNER`, `ADMIN`. BCrypt-хеширана парола, баланс от кредити, статистика за резервации. |
+| `Sport` | Справочна таблица (Баскетбол, Футбол, Тенис, Падел, Волейбол, Бадминтон). |
+| `SportHall` | `HallType` enum: `INDOOR`, `OUTDOOR`, `PREMIUM`, `CLAY`, `GRASS`. Принадлежи към един `Sport`, има географска ширина/дължина, цена/час, рейтинг, работно време. |
+| `Reservation` | `Status` enum: `PENDING`, `CONFIRMED`, `CANCELLED`, `COMPLETED`. Изчислена `totalPrice = pricePerHour × часове`. |
+| `Review` | Рейтинг/коментар за зала (1–5), свързан с потребител и зала. |
+| `Favorite` | Връзка много-към-много потребител↔зала, уникална за всяка двойка (потребител, зала). |
+| `AIConversation` / `AIMessage` | Запазена история на чата за AI треньора, `Role` enum: `USER`, `ASSISTANT`. |
+
+## Сигурност
+
+- Stateless JWT автентикация — хедър `Authorization: Bearer <token>`, валидиран от `JwtAuthFilter` (`OncePerRequestFilter`) преди `UsernamePasswordAuthenticationFilter` на Spring Security.
+- Паролите се хешират с `BCryptPasswordEncoder`.
+- `/api/auth/**` и `/api/halls`, `/api/halls/**` са публични; всичко останало изисква валиден токен (вижте `SecurityConfig`).
+- CORS е разрешителен (`CorsConfig`), за да улесни локалната разработка срещу Android емулатора — затегнете това преди каквото и да е продукционно внедряване.
+
+## API справочник
+
+Базов път: `/api`
+
+### Автентикация (публично)
+
+| Метод | Път | Описание |
+|---|---|---|
+| `POST` | `/auth/register` | Създаване на акаунт. Тяло: `fullName`, `email`, `password`. Връща JWT + потребителски профил. |
+| `POST` | `/auth/login` | Автентикация. Тяло: `email`, `password`. Връща JWT + потребителски профил. |
+
+### Спортни зали (публично)
+
+| Метод | Път | Описание |
+|---|---|---|
+| `GET` | `/halls/recommended` | Топ 10 зали по рейтинг. |
+| `GET` | `/halls` | Търсене/странициране на зали. Query параметри: `query`, `sportId`, `sortBy` (`rating_asc/desc`, `price_asc/desc`, `name_asc/desc`), `page`, `size`. |
+| `GET` | `/halls/{id}` | Детайли за зала. |
+| `POST` | `/halls/{id}/favorite` | Превключва любимо за автентикирания потребител (изисква автентикация). |
+
+### Резервации (изисква автентикация)
+
+| Метод | Път | Описание |
+|---|---|---|
+| `GET` | `/reservations/upcoming` | Предстоящи резервации на автентикирания потребител. |
+| `GET` | `/reservations/past` | Минали резервации на автентикирания потребител. |
+| `POST` | `/reservations` | Създаване на резервация. Тяло: `hallId`, `date`, `startTime`, `endTime`. |
+| `DELETE` | `/reservations/{id}` | Отказ на резервация. |
+
+### Потребители (изисква автентикация)
+
+| Метод | Път | Описание |
+|---|---|---|
+| `GET` | `/users/me` | Профил на текущия потребител. |
+| `PUT` | `/users/me` | Обновяване на полета от профила. |
+
+### AI Треньор (изисква автентикация)
+
+| Метод | Път | Описание |
+|---|---|---|
+| `POST` | `/ai/chat` | Изпраща съобщение до AI треньора; връща отговор от асистента, опционално с предложена зала, като историята се запазва за всеки потребител. |
+
+Всички отговори за грешки са оформени от `GlobalExceptionHandler` (`@RestControllerAdvice`), покривайки грешки при валидация, невалидни идентификационни данни и общи runtime грешки с последователни JSON тела за грешки.
+
+## Бележки относно формата на JWT тайния ключ
+
+`JwtUtil` декодира `jwt.secret` от Base64 и изгражда ключа за подписване с `Keys.hmacShaKeyFor(...)`, а парсира/проверява токени чрез `Jwts.parser().verifyWith(key).build().parseSignedClaims(token)` — API-то на jjwt 0.12.x. Ако смените тайния ключ, всички издадени преди това токени стават невалидни.
+
+---
+
+# CourtSync Backend
+
 Spring Boot 3 REST API for the CourtSync sports hall booking platform. Provides authentication, sport hall search/booking, reservation management, and an AI coach chat endpoint backed by OpenAI.
 
 ## Tech stack

@@ -1,5 +1,59 @@
 # CourtSync
 
+CourtSync е пълноценна платформа за резервация на спортни зали: нативно Android приложение и Spring Boot REST API, работещо с MySQL. Потребителите могат да разглеждат и търсят спортни зали (баскетбол, футбол, тенис, падел, волейбол, бадминтон), да резервират часови интервали, да управляват своите резервации и да получават препоръки от AI треньор, задвижван от OpenAI.
+
+Проектът е разделен на два независими модула в това хранилище:
+
+| Модул | Описание | Документация |
+|---|---|---|
+| [`courtsync-backend/`](courtsync-backend) | Spring Boot 3 REST API, JWT автентикация, MySQL/JPA | [Backend README](courtsync-backend/README.md) |
+| [`CourtSyncApp/`](CourtSyncApp) | Нативно Android приложение (Java, MVVM) | [Android README](CourtSyncApp/README.md) |
+
+## Функционалности
+
+- **Автентикация** - регистрация и вход с имейл/парола, JWT bearer токени, BCrypt хеширане на пароли
+- **Откриване на спортни зали** - препоръчани зали, търсене по ключова дума/град/спорт, сортиране по рейтинг/цена/име (с опция за обръщане на реда), филтърни чипове по спорт
+- **Детайли за залата** - снимки, работно време, цени, описание, вградена Google карта с маркер на местоположението на обекта, добавяне в любими
+- **Резервации** - процес на резервация по дата/часови интервал, списъци с предстоящи/минали резервации, отказ на резервация
+- **AI Треньор** - чат асистент (OpenAI GPT-4o-mini), който препоръчва зали въз основа на съобщението на потребителя, като историята на разговора се запазва за всеки потребител
+- **Профил** - статистика за резервации, кредити, изход от профила
+
+## Архитектура
+
+```
+┌─────────────────────────┐        HTTPS/JSON (JWT Bearer)        ┌──────────────────────────┐
+│   Android App (Java)    │  ───────────────────────────────────▶│  Spring Boot REST API   │
+│  MVVM + Retrofit/OkHttp │ ◀─────────────────────────────────── │  Spring Security + JWT   │
+└─────────────────────────┘                                       └───────────┬──────────────┘
+                                                                                │ JPA/Hibernate
+                                                                    ┌───────────▼──────────────┐
+                                                                    │        MySQL             │
+                                                                    └──────────────────────────┘
+                                                                                │
+                                                                    ┌───────────▼──────────────┐
+                                                                    │   OpenAI API (AI Coach)  │
+                                                                    └──────────────────────────┘
+```
+
+## Стъпки за започване
+
+Ще ви трябват и двата модула, работещи, за да използвате приложението от край до край:
+
+1. Първо настройте и стартирайте бекенда — вижте [Backend README](courtsync-backend/README.md) за настройка на MySQL, конфигурация на средата и как да го стартирате.
+2. След това компилирайте и стартирайте Android приложението срещу него — вижте [Android README](CourtSyncApp/README.md) за конфигурация на емулатор/устройство.
+
+## ⚠️ Бележка за сигурността
+
+Файлът `courtsync-backend/src/main/resources/application.properties` в това хранилище в различни моменти е съдържал реални идентификационни данни (парола за MySQL и OpenAI API ключ), закачени директно в git. **Ако настройвате този проект, третирайте всички идентификационни данни, налични в момента в този файл, като компрометирани — сменете ги и преминете към променливи на средата**, както е описано в [Backend README](courtsync-backend/README.md#configuration). Никога не качвайте реални тайни в `application.properties`; използвайте плейсхолдъри от вида `${ENV_VAR}` вместо това.
+
+## Лиценз
+
+MIT - вижте [LICENSE](LICENSE).
+
+---
+
+# CourtSync
+
 CourtSync is a full-stack sports hall booking platform: a native Android client and a Spring Boot REST API backed by MySQL. Users can browse and search sports halls (basketball, football, tennis, padel, volleyball, badminton), book time slots, manage their reservations, and get recommendations from an AI coach powered by OpenAI.
 
 The project is split into two independent modules in this repository:
