@@ -5,15 +5,15 @@ Native Android client for CourtSync, written in Java with an MVVM architecture. 
 ## Tech stack
 
 - **Java 17**, Android **minSdk 24 / targetSdk 34 / compileSdk 34**
-- **MVVM** — `AndroidViewModel` → Repository → Retrofit → REST API, exposed to the UI via `LiveData`
+- **MVVM** - `AndroidViewModel` → Repository → Retrofit → REST API, exposed to the UI via `LiveData`
 - **Navigation Component** (single-`Activity`, `NavHostFragment` + `BottomNavigationView`, `nav_graph.xml`)
-- **Retrofit 2 + OkHttp** — networking, with an `AuthInterceptor` that attaches the JWT bearer token and an `HttpLoggingInterceptor` for debugging
-- **Gson** — JSON (de)serialization
-- **Glide** — image loading or (avatars, hall photos)
-- **Google Maps SDK for Android** (`play-services-maps`) — embedded map + marker on the hall details screen
-- **Material Components 3** — dark theme, primary color `#10E5B2`
+- **Retrofit 2 + OkHttp** - networking, with an `AuthInterceptor` that attaches the JWT bearer token and an `HttpLoggingInterceptor` for debugging
+- **Gson** - JSON (de)serialization
+- **Glide** - image loading or (avatars, hall photos)
+- **Google Maps SDK for Android** (`play-services-maps`) - embedded map + marker on the hall details screen
+- **Material Components 3** - dark theme, primary color `#10E5B2`
 - **ViewBinding** enabled
-- **Room** — dependency present for future offline caching (not yet wired up)
+- **Room** - dependency present for future offline caching (not yet wired up)
 - Gradle **version catalog** (`gradle/libs.versions.toml`)
 
 ## Project layout
@@ -52,12 +52,6 @@ app/src/main/res/
 | AI Coach | Chat UI backed by the backend's OpenAI-powered `/api/ai/chat`, with quick-suggestion chips |
 | Profile | Booking stats, credits, sign out |
 
-## Prerequisites
-
-- Android Studio (Koala/Ladybug or newer recommended) with SDK 34 installed
-- A running instance of the [CourtSync backend](../courtsync-backend) (see its README for setup)
-- A Google Maps API key with the **Maps SDK for Android** enabled (for the hall details map)
-
 ## Configuration
 
 ### Backend URL
@@ -74,7 +68,7 @@ public static final String BASE_URL = "http://10.0.2.2:8080/";
 
 ### Google Maps API key
 
-The key is declared in [`res/values/google_maps_api.xml`](app/src/main/res/values/google_maps_api.xml) and wired into the manifest via a `<meta-data android:name="com.google.android.geo.API_KEY">` entry. **Do not commit a real key to source control** — this file currently holds a real key for convenience during development; replace it with your own and consider moving it to a non-committed `local.properties`-based `resValue`/`BuildConfig` field, or restrict the key in the Google Cloud Console to your app's package name + SHA-1 fingerprint.
+The key is declared in [`res/values/google_maps_api.xml`](app/src/main/res/values/google_maps_api.xml) and wired into the manifest via a `<meta-data android:name="com.google.android.geo.API_KEY">` entry. **Do not commit a real key to source control** - this file currently holds a real key for convenience during development; replace it with your own and consider moving it to a non-committed `local.properties`-based `resValue`/`BuildConfig` field, or restrict the key in the Google Cloud Console to your app's package name + SHA-1 fingerprint.
 
 ## Building & running
 
@@ -100,12 +94,12 @@ From the command line:
 
 - **Single-Activity**: `MainActivity` hosts one `NavHostFragment` wired to a `BottomNavigationView` via `NavigationUI.setupWithNavController`. Auth screens (`LoginActivity`, `RegisterActivity`) and the splash screen are separate activities outside the nav graph.
 - **Session**: JWT + basic user info are persisted in `SharedPreferences` via `SessionManager`; `AuthInterceptor` reads the token and attaches `Authorization: Bearer <token>` to every outgoing request.
-- **State events**: one-shot signals (e.g. "reservation cancelled", "favorite toggled") are modeled as `MutableLiveData` that's explicitly reset after being consumed, to avoid Android's classic "sticky LiveData replays a stale event on fragment recreation" bug — see `ReservationsViewModel.clearCancelResult()` for the pattern.
+- **State events**: one-shot signals (e.g. "reservation cancelled", "favorite toggled") are modeled as `MutableLiveData` that's explicitly reset after being consumed, to avoid Android's classic "sticky LiveData replays a stale event on fragment recreation" bug - see `ReservationsViewModel.clearCancelResult()` for the pattern.
 - **Back stack hygiene**: actions that land on a bottom-nav-hosted destination from elsewhere in the graph (e.g. after booking, navigating from hall details to Reservations) use `popUpTo`/`launchSingleTop` so the back stack stays equivalent to a normal tab switch, instead of accumulating stale intermediate fragments.
 
 ## Known limitations / TODO
 
 - Room is included as a dependency for future offline caching but isn't used yet.
 - "Payment methods" and "Personal info editor" in Profile are placeholder actions (show a toast).
-- No JWT refresh-token flow — tokens simply expire after `jwt.expiration` (24h by default) and require re-login.
+- No JWT refresh-token flow - tokens simply expire after `jwt.expiration` (24h by default) and require re-login.
 - Sport-name → `sportId` mapping in `SearchFragment` is hardcoded (Basketball=1, Football=2, Tennis=3) to match the backend's seeded `sports` table — keep both in sync if you change the seed data.
