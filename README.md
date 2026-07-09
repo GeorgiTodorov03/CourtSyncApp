@@ -72,7 +72,7 @@ The project is split into two independent modules in this repository:
 
 ```
 ┌─────────────────────────┐        HTTPS/JSON (JWT Bearer)        ┌──────────────────────────┐
-│   Android App (Java)    │  ───────────────────────────────────▶│  Spring Boot REST API   │
+│   Android App (Java)    │  ───────────────────────────────────▶│  Spring Boot REST API    │
 │  MVVM + Retrofit/OkHttp │ ◀─────────────────────────────────── │  Spring Security + JWT   │
 └─────────────────────────┘                                       └───────────┬──────────────┘
                                                                                 │ JPA/Hibernate
