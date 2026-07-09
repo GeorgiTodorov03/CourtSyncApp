@@ -66,10 +66,6 @@ public static final String BASE_URL = "http://10.0.2.2:8080/";
 - Ако тествате на **физическо устройство**, сменете това с LAN IP адреса на вашата машина (напр. `http://192.168.1.50:8080/`) и се уверете, че устройството е в същата мрежа и вашият firewall позволява връзката.
 - `android:usesCleartextTraffic="true"` е зададено в манифеста, за да позволи обикновен HTTP по време на локална разработка — това трябва да се премахне/затегне преди каквото и да е продукционно/HTTPS внедряване.
 
-### Google Maps API ключ
-
-Ключът е деклариран в [`res/values/google_maps_api.xml`](app/src/main/res/values/google_maps_api.xml) и свързан в манифеста чрез `<meta-data android:name="com.google.android.geo.API_KEY">`.
-
 ## Компилиране и стартиране
 
 1. Отворете папката `CourtSyncApp/` в Android Studio.
@@ -77,13 +73,9 @@ public static final String BASE_URL = "http://10.0.2.2:8080/";
 3. Първо стартирайте бекенда (вижте [backend README](../courtsync-backend/README.md)).
 4. Стартирайте конфигурацията `app` на емулатор (API 24+) или физическо устройство.
 
-### Gradle свойства
-
-`gradle.properties` задава `android.useAndroidX=true` и `android.nonTransitiveRClass=true` — необходими за разрешаване на AndroidX зависимости; не ги премахвайте.
-
 ## Архитектурни бележки
 
-- **Единична Activity**: `MainActivity` съдържа един `NavHostFragment`, свързан с `BottomNavigationView` чрез `NavigationUI.setupWithNavController`. Екраните за автентикация (`LoginActivity`, `RegisterActivity`) и splash екранът са отделни activity-та извън navigation графа.
+- **Единично Activity**: `MainActivity` съдържа един `NavHostFragment`, свързан с `BottomNavigationView` чрез `NavigationUI.setupWithNavController`. Екраните за автентикация (`LoginActivity`, `RegisterActivity`) и splash екранът са отделни activity-та извън navigation графа.
 - **Сесия**: JWT токенът и основната потребителска информация се запазват в `SharedPreferences` чрез `SessionManager`; `AuthInterceptor` чете токена и прикачва `Authorization: Bearer <token>` към всяка изходяща заявка.
 - **Еднократни събития**: еднократни сигнали (напр. "резервацията е отказана", "любимото е превключено") са моделирани като `MutableLiveData`, която изрично се нулира след консумиране, за да се избегне класическият бъг на Android, при който "залепналата" LiveData възпроизвежда старо събитие при пресъздаване на фрагмента — вижте `ReservationsViewModel.clearCancelResult()` за модела.
 - **Хигиена на back stack-а**: действия, които водят до дестинация, хоствана от долната навигация, от друго място в графа (напр. след резервация, при навигация от детайлите за залата към Reservations), използват `popUpTo`/`launchSingleTop`, за да остане back stack-ът еквивалентен на обикновено превключване на таб, вместо да натрупва остарели междинни фрагменти.
@@ -165,20 +157,12 @@ public static final String BASE_URL = "http://10.0.2.2:8080/";
 - If you're testing on a **physical device**, change this to your machine's LAN IP (e.g. `http://192.168.1.50:8080/`) and make sure the device is on the same network and your firewall allows the connection.
 - `android:usesCleartextTraffic="true"` is set in the manifest to allow plain HTTP during local development — this should be removed/tightened before any production/HTTPS deployment.
 
-### Google Maps API key
-
-The key is declared in [`res/values/google_maps_api.xml`](app/src/main/res/values/google_maps_api.xml) and wired into the manifest via a `<meta-data android:name="com.google.android.geo.API_KEY">` entry.
-
 ## Building & running
 
 1. Open the `CourtSyncApp/` folder in Android Studio.
 2. Let Gradle sync — dependencies are resolved via `gradle/libs.versions.toml`.
 3. Start the backend first (see [backend README](../courtsync-backend/README.md)).
 4. Run the `app` configuration on an emulator (API 24+) or physical device.
-
-### Gradle properties
-
-`gradle.properties` sets `android.useAndroidX=true` and `android.nonTransitiveRClass=true` — required for AndroidX dependency resolution; don't remove these.
 
 ## Architecture notes
 
