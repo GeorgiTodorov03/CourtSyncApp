@@ -47,7 +47,7 @@ app/src/main/res/
 | Login / Register | Form validation in the ViewModel before calling the API |
 | Home | Recommended halls carousel, "Ask AI Coach" and "View All" shortcuts |
 | Search | Debounced text search (400ms), sport filter chips, and a **sort/filter bottom sheet** — sort by rating, price, or name (alphabetical), each with a "reverse order" toggle |
-| Sport Hall Details | Hero photo, rating/hours/price, description, an embedded **Google Map** with a marker at the hall's location, favorite toggle, share, "Open in Maps" (external), and a date/time picker booking flow |
+| Sport Hall Details | Hall photo, rating/hours/price, description, an embedded **Google Map** with a marker at the hall's location, favorite toggle, share, "Open in Maps" (external), and a date/time picker booking flow |
 | Reservations | Upcoming/Past tabs, cancel with confirmation dialog |
 | AI Coach | Chat UI backed by the backend's OpenAI-powered `/api/ai/chat`, with quick-suggestion chips |
 | Profile | Booking stats, credits, sign out |
